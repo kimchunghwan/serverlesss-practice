@@ -41,7 +41,7 @@ const serverlessConfiguration: Serverless = {
         EsAuthUserPoolDomain: {
           Type: 'AWS::Cognito::UserPoolDomain',
           Properties: {
-            Domain: 'es-cognito', // todo unique domain
+            Domain: 'test-12i89sdfh-es', // todo unique domain
             UserPoolId: {
               Ref: 'EsAuthUserPool',
             },

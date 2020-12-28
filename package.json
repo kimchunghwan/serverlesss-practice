@@ -2,10 +2,9 @@
   "name": "aws-elasticsearch-cognito",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "cognito:deploy": "sls deploy -c serverless-cognito.ts",
-    "cognito:elasticsearch": "sls deploy -c serverless-elasticsearch.ts"
+    "deploy:cognito": "sls deploy -c serverless-cognito.ts",
+    "deploy:elasticsearch": "sls deploy -c serverless-elasticsearch.ts"
   },
   "author": "",
   "license": "ISC",

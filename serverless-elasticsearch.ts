@@ -32,9 +32,9 @@ const serverlessConfiguration: Serverless = {
           },
           CognitoOptions: {
             Enabled: true,
-            IdentityPoolId: '${cf:elasticsearch-cognito-dev.EsAuthIdentityPoolId}',
-            RoleArn: '${cf:elasticsearch-cognito-dev.EsAuthCognitoAccessForAmazonESArn}',
-            UserPoolId: '${cf:elasticsearch-cognito-dev.EsAuthUserPoolId}',
+            IdentityPoolId: '${cf:cognito-for-es-dev.EsAuthIdentityPoolId}',
+            RoleArn: '${cf:cognito-for-es-dev.EsAuthCognitoAccessForAmazonESArn}',
+            UserPoolId: '${cf:cognito-for-es-dev.EsAuthUserPoolId}',
           },
           AccessPolicies: {
             Version: '2012-10-17',
@@ -44,7 +44,7 @@ const serverlessConfiguration: Serverless = {
                 Principal: {
                   AWS: [
                     // todo 람다등 다른 aws 리소스에서 접근할경우에는 여기에 role이나 user를 추가필요.
-                    '${cf:elasticsearch-cognito-dev.EsAuthIdentityPoolAuthRoleArn}',
+                    '${cf:cognito-for-es-dev.EsAuthIdentityPoolAuthRoleArn}',
                   ],
                 },
                 Action: 'es:ESHttp*',
