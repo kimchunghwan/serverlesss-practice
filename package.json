@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "deploy:cognito": "sls deploy -c serverless-cognito.ts",
-    "deploy:elasticsearch": "sls deploy -c serverless-elasticsearch.ts"
+    "deploy:cognito": "sls remove -c elasticsearch-cognito/serverless-cognito.ts",
+    "deploy:elasticsearch": "sls deploy -c elasticsearch-cognito/serverless-elasticsearch.ts"
   },
   "author": "",
   "license": "ISC",
