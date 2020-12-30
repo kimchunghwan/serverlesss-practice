@@ -1,8 +1,8 @@
-### SERVERLESS practice 
+# SERVERLESS practice 
 
-#### aws elasticsearch with cognito 
+## aws elasticsearch with cognito 
 
-##### flow 
+### flow 
 
 1. npm install 
 2. npm run deploy:cognito 
