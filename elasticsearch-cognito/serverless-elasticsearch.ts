@@ -17,14 +17,14 @@ const serverlessConfiguration: Serverless = {
         Type: 'AWS::Elasticsearch::Domain',
         Properties: {
           ElasticsearchVersion: '7.7',
-          DomainName: `es-with-cognito`,
+          DomainName: 'es-with-cognito',
           ElasticsearchClusterConfig: {
             DedicatedMasterEnabled: false,
             InstanceCount: '1',
             ZoneAwarenessEnabled: false,
             InstanceType: instanceType,
           },
-          EBSOptions:  {
+          EBSOptions: {
             EBSEnabled: true,
             Iops: 0,
             VolumeSize: 10,
@@ -33,7 +33,8 @@ const serverlessConfiguration: Serverless = {
           CognitoOptions: {
             Enabled: true,
             IdentityPoolId: '${cf:cognito-for-es-dev.EsAuthIdentityPoolId}',
-            RoleArn: '${cf:cognito-for-es-dev.EsAuthCognitoAccessForAmazonESArn}',
+            RoleArn:
+              '${cf:cognito-for-es-dev.EsAuthCognitoAccessForAmazonESArn}',
             UserPoolId: '${cf:cognito-for-es-dev.EsAuthUserPoolId}',
           },
           AccessPolicies: {
@@ -44,6 +45,16 @@ const serverlessConfiguration: Serverless = {
                 Principal: {
                   AWS: [
                     // todo 람다등 다른 aws 리소스에서 접근할경우에는 여기에 role이나 user를 추가필요.
+                    {
+                      'Fn::Join': [
+                        '',
+                        [
+                          'arn:aws:iam::',
+                          { Ref: 'AWS::AccountId' },
+                          ':root',
+                        ],
+                      ],
+                    },
                     '${cf:cognito-for-es-dev.EsAuthIdentityPoolAuthRoleArn}',
                   ],
                 },
